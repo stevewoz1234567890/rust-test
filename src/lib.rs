@@ -38,7 +38,7 @@ impl StreamCache {
         let results1 = Arc::clone(&self.results);
         let results2 = Arc::clone(&self.results);
         let api_clone = api.clone();
-        
+
         // Spawn a background task to handle the subscription stream first
         // This ensures we get real-time updates immediately
         tokio::spawn(async move {
@@ -55,7 +55,7 @@ impl StreamCache {
                 }
             }
         });
-        
+
         // Spawn another background task to handle the initial fetch
         // This will only populate cities that haven't been updated by the stream yet
         tokio::spawn(async move {
